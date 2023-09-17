@@ -26,5 +26,4 @@ chunk-SPUAGIB2.js:1 manager received preloadStories but was unable to determine 
 
 ### Additional Notes
 - The issue does not appear when running Storybook locally.
-- The specific environment details, configurations, and any recent changes made that could potentially influence this behavior.
 - We are using the latest version of Storybook, which is 7.4.2.
