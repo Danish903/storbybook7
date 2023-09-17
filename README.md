@@ -1,46 +1,30 @@
-# Getting Started with Create React App
+# Storybook Deployment issue
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Overview
 
-## Available Scripts
+We are facing an issue with our Storybook when it's deployed. While it works perfectly in a local environment, the deployed version throws errors that prevent it from loading correctly. We are currently using Storybook version 7.4.2.
 
-In the project directory, you can run:
+#### Error Observed
+#### 1. JSON Sytanx Error
+  The story book view error button shows the following error
+```javascript
+SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+``` 
+#### 2. Infinite Loading Issue
+Upon running the production build of storybook-static using the serve command, the browser does not load the Storybook UI as expected. Instead, it gets stuck on an infinite loading icon.
 
-### `npm start`
+The browser console logs the following error:
+```javascript
+chunk-SPUAGIB2.js:1 manager received preloadStories but was unable to determine the source of the event
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Steps to Reproduce
+- Deploy the Storybook to [deployment environment or server].
+- Open the Storybook URL in a web browser.
+- Observe the aforementioned errors in the browser console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Additional Notes
+- The issue does not appear when running Storybook locally.
+- The specific environment details, configurations, and any recent changes made that could potentially influence this behavior.
+- We are using the latest version of Storybook, which is 7.4.2.
